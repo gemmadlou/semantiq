@@ -8,6 +8,7 @@ const packageJson = require("../package.json")
 const runner = require("../lib/runner")
 const publisher = require("../lib/publisher")
 const async = require("async-kit")
+const chalk = require("chalk")
 
 const yargs = require("yargs")
     .scriptName("sem")
@@ -26,13 +27,18 @@ if (argv.v || argv.version) {
 }
 
 ;(async () => {
-    let publish = runner(publisher)
-    let release = await publish()
+    try {
+        let publish = runner(publisher)
+        let release = await publish()
 
-    if (!release) {
-        process.exit(1)
+        if (!release) {
+            process.exit(1)
+        }
+
+        log(release)
+        async.exit()
+    } catch (error) {
+        log(chalk.red(error.message))
+        async.exit(1)
     }
-
-    log(release)
-    async.exit()
 })()

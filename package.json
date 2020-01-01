@@ -1,5 +1,5 @@
 {
-    "name": "sem",
+    "name": "semantiq",
     "version": "0.0.1",
     "description": "Semantically publish an application",
     "main": "index.js",
@@ -7,12 +7,11 @@
         "lint": "eslint **/*.js",
         "typecheck": "tsc lib/*.js **/*.test.js --allowJs  --noEmit --checkJs",
         "test": "ENVIRONMENT=testing jest --coverage",
-        "test:watch": "jest --watch",
         "qa": "npm run lint && npm run typecheck && npm test",
         "prettier": "prettier --write \"lib/**/*.js\" \"docs/**/*.js\""
     },
     "author": "Gemma Black",
-    "bin": "./bin/sem.js",
+    "bin": "./bin/semantiq.js",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.7.7",

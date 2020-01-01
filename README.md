@@ -1,8 +1,8 @@
-# Semantic Publishing
+# Semantics
 
-> A basic cli that works out your next semantic release from the last commit.
+> A most basic cli that gets the next semantic release, looking at the last commit and package.json version.
 
-![](./docs/img/sem.jpg)
+![](./docs/img/semantiq.jpg)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -10,35 +10,47 @@
 
 ## Contents
 
--   [Getting started](#getting-started)
--   [The process](#the-process)
+-   [Usage](#getting-started)
+-   [Commit Flags](#commit-flags)
 -   [Usage](#usage)
 -   [Resources](#resources)
 
-## Get started
-
-```
-npm install sem
-```
-
 ## Usage
+
+### Install
+
+```sh
+npm install semantiq
+```
 
 ### CLI
 
 ```sh
-sempublish --bucket <bucketName>
+semantiq
 ```
 
-### Modules
+Expected output is the next release if the last commit follows the [Angular commits convention](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) and a package.json exists.
 
-```js
-const sempublish = require("sempublish")
+### Example
 
-;(async () => {
-    await sempublish({
-        bucket: "<bucket>",
-    })
-})()
+Given you have a commit of:
+
+```sh
+feat: My brand new feature!
+```
+
+And a package with:
+
+```json
+{
+    "version": "1.0.1"
+}
+```
+
+When you call `semantiq`, the result will be:
+
+```sh
+$ 1.1.0
 ```
 
 ## Commit Flags
@@ -56,15 +68,41 @@ Semver: `major.minor.patch` eg. `1.4.5`
 | test     | Adding missing or correcting existing tests                                                            | patch  |
 | chore    | Changes to the build process or auxiliary tools and libraries such as documentation generation         | patch  |
 
+### No Major release
+
+My current thinking is that major releases shouldn't be automated. If you think it should, create an issue.
+
+## What it doesn't do
+
+-   Create artefacts
+-   Push or pull branches
+-   Updates your package.json
+-   Use any other semantic versioning
+
 ## Testing
 
-### Requirements
-
--   Setup us-east-1 ssh for Codecommit
-
 ```sh
-ssh git-codecommit.us-east-1.amazonaws.com
+npm test
 ```
+
+## Next steps
+
+-   Generate a change log? ([read](https://gist.github.com/stephenparish/9941e89d80e2bc58a153#generating-changelogmd))
+-   Create an artefact? ([read](https://gist.github.com/gemmadlou/714a45f46d137cc503a52f4acb0f5b5e)) - Similar to unleash
+
+## Alternative tools
+
+-   [Unleash](http://netflix.github.io/unleash/) - a fully fledged publishing system for GitHub and npm
+-   [Semantic release](https://github.com/semantic-release/semantic-release)
+
+## Thank yous
+
+-   [Eric Elliot](https://medium.com/@_ericelliott) - Still not using his good functional programming principles but his lessons on modularity are awesome
+-   [Jest](https://www.npmjs.com/package/jest) - Especially code coverage.
+-   [Typescript](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html) - It's not a Typescript project but the `--checkJs` option catches lots of code correctness issues when using docblock comments.
+-   [Husky](https://www.npmjs.com/package/husky) - Preventing me from committing errors
+-   [ESLint](https://eslint.org/) - Keeps my code tidy
+-   [Prettier](https://prettier.io/) - Prevents me from having to worry about style issues.
 
 ## Resources
 

@@ -34,7 +34,7 @@ defineFeature(feature, (test) => {
 
         when("we publish the new release", async () => {
             actual = shell
-                .exec(`cd ${gitDir} && ${process.cwd()}/bin/sem.js next`)
+                .exec(`cd ${gitDir} && ${process.cwd()}/bin/semantiq.js next`)
                 .stdout.replace(/[\s]+/, "")
         })
 
