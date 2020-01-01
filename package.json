@@ -6,7 +6,7 @@
         "lint": "eslint **/*.js",
         "typecheck": "tsc lib/*.js **/*.test.js --allowJs  --noEmit --checkJs",
         "test": "ENVIRONMENT=testing jest --coverage",
-        "qa": "npm run lint && npm run typecheck && npm test",
+        "qa": "npm run lint && npm run typecheck && npm test -- --verbose",
         "prettier": "prettier --write \"lib/**/*.js\" \"docs/**/*.js\""
     },
     "author": "Gemma Black",
