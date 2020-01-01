@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+## Config
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" 
+URL="https://github.com/gemmadlou/semantiq.git"
+RELEASE=`semantiq release`
+
+cat > ~/.git-credentials <<EOL
+https://gemmadlou:${GH_TOKEN}@github.com/gemmadlou/semantiq.git
+EOL
+
+## Set Origin
+cd ../
+
+git remote set-url origin $URL
+
+if [ -z "$RELEASE" ]; then
+    echo "NO RELEASE"
+    exit;
+fi
+
+echo "RELEASING"
+
+npm version $RELEASE -m "Version $RELEASE released"
+
+git tag -a $RELEASE -m "$RELEASE"
+
+git pull --rebase && push -u origin master

@@ -20,6 +20,7 @@
         "ecmaVersion": 2018
     },
     "rules": {
+        "no-console": ["error", { "allow": ["info", "warn", "error"] }],
         "no-extra-semi": 0,
         "complexity": ["error", 15],
         "max-depth": ["error", 3],

@@ -4,6 +4,8 @@ if (require.main !== module) {
     throw new Error("Executable-only module should not be required")
 }
 
+const log = console.info
+
 const packageJson = require("../package.json")
 const runner = require("../lib/runner")
 const publisher = require("../lib/publisher")
@@ -17,8 +19,6 @@ const yargs = require("yargs")
     .command("release", "Gets release type")
     .help("h")
     .alias("h", "help")
-
-const log = console.log
 
 const argv = yargs.argv
 
