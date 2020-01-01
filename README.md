@@ -1,10 +1,14 @@
-# Semantics
+# Semantiq
 
 > A most basic cli that gets the next semantic release, looking at the last commit and package.json version.
 
 ![](./docs/img/semantiq.jpg)
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Build Status](https://travis-ci.com/gemmadlou/semantiq.svg?branch=master)](https://travis-ci.com/gemmadlou/semantiq)
+[![codecov](https://codecov.io/gh/gemmadlou/semantiq/branch/master/graph/badge.svg)](https://codecov.io/gh/gemmadlou/semantiq)
+![GitHub](https://img.shields.io/github/license/gemmadlou/semantiq)
+![npm](https://img.shields.io/npm/v/semantiq)
 
 ---
 
@@ -53,7 +57,7 @@ When you call `semantiq`, the result will be:
 $ 1.1.0
 ```
 
-## Commit Flags
+## Commit Flags 🏁
 
 Semver: `major.minor.patch` eg. `1.4.5`
 
@@ -93,7 +97,7 @@ npm test
 ## Alternative tools
 
 -   [Unleash](http://netflix.github.io/unleash/) - a fully fledged publishing system for GitHub and npm
--   [Semantic release](https://github.com/semantic-release/semantic-release)
+-   [Semantic release](https://github.com/semantic-release/semantic-release) - Another automated publisher
 
 ## Thank yous
 
