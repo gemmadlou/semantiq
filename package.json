@@ -1,8 +1,7 @@
 {
     "name": "semantiq",
     "version": "0.0.1",
-    "description": "Semantically publish an application",
-    "main": "index.js",
+    "description": "Gets the version number of the next release",
     "scripts": {
         "lint": "eslint **/*.js",
         "typecheck": "tsc lib/*.js **/*.test.js --allowJs  --noEmit --checkJs",

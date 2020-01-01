@@ -1,0 +1,5 @@
+# blacklist all
+**
+# include whitelist
+!lib/**
+lib/**/*.test.js
