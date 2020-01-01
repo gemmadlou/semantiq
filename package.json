@@ -1,0 +1,65 @@
+{
+    "name": "sem",
+    "version": "0.0.1",
+    "description": "Semantically publish an application",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint **/*.js",
+        "typecheck": "tsc lib/*.js **/*.test.js --allowJs  --noEmit --checkJs",
+        "test": "ENVIRONMENT=testing jest --coverage",
+        "test:watch": "jest --watch",
+        "qa": "npm run lint && npm run typecheck && npm test",
+        "prettier": "prettier --write \"lib/**/*.js\" \"docs/**/*.js\""
+    },
+    "author": "Gemma Black",
+    "bin": "./bin/sem.js",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.7.7",
+        "@babel/preset-env": "^7.7.7",
+        "@commitlint/cli": "^8.2.0",
+        "@commitlint/config-conventional": "^8.2.0",
+        "babel-jest": "^24.9.0",
+        "cz-conventional-changelog": "^3.0.2",
+        "eslint": "^6.8.0",
+        "faker": "^4.1.0",
+        "husky": "^3.1.0",
+        "jest-cucumber": "^2.0.11",
+        "jest-expect-message": "^1.0.2",
+        "lint-staged": "^9.5.0",
+        "mock-require": "^3.0.3",
+        "prettier": "^1.19.1",
+        "typescript": "^3.5.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "dependencies": {
+        "async-kit": "^2.2.4",
+        "aws-sdk": "^2.596.0",
+        "chalk": "^3.0.0",
+        "ora": "^4.0.3",
+        "semver": "^7.1.1",
+        "shelljs": "^0.8.3",
+        "simple-git": "^1.129.0",
+        "yargs": "^15.0.2"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged && npm test"
+        }
+    },
+    "lint-staged": {
+        "*.{js,css,json,md}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.js": [
+            "eslint *.js --fix",
+            "git add"
+        ]
+    }
+}
