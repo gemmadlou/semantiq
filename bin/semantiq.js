@@ -32,15 +32,15 @@ if (argv.v || argv.version) {
         let publish = runner(publisher)
         let release = await publish()
 
+        if (!release.release) {
+            async.exit(1)
+        }
+
         switch (argv._[0]) {
             case "release":
                 log(release.release)
                 break
             default:
-                if (!release) {
-                    async.exit(1)
-                }
-
                 log(release.version)
                 break
         }
