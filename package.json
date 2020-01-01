@@ -1,6 +1,6 @@
 {
     "name": "semantiq",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Gets the version number of the next release",
     "scripts": {
         "lint": "eslint **/*.js",

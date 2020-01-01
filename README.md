@@ -15,8 +15,7 @@
 ## Contents
 
 -   [Usage](#getting-started)
--   [Commit Flags](#commit-flags)
--   [Usage](#usage)
+-   [Commit Flags](#commit-flags-🏁)
 -   [Resources](#resources)
 
 ## Usage
@@ -92,7 +91,7 @@ npm test
 ## Next steps
 
 -   Generate a change log? ([read](https://gist.github.com/stephenparish/9941e89d80e2bc58a153#generating-changelogmd))
--   Create an artefact? ([read](https://gist.github.com/gemmadlou/714a45f46d137cc503a52f4acb0f5b5e)) - Similar to unleash
+-   Create an artefact? ([read](https://gist.github.com/gemmadlou/714a45f46d137cc503a52f4acb0f5b5e))
 
 ## Alternative tools
 

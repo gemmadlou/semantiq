@@ -13,7 +13,8 @@ const chalk = require("chalk")
 const yargs = require("yargs")
     .scriptName("sem")
     .usage("$0 <cmd>")
-    .command("next", "Gets next version")
+    .command("", "Gets next version")
+    .command("release", "Gets release type")
     .help("h")
     .alias("h", "help")
 
@@ -31,11 +32,18 @@ if (argv.v || argv.version) {
         let publish = runner(publisher)
         let release = await publish()
 
-        if (!release) {
-            process.exit(1)
-        }
+        switch (argv._[0]) {
+            case "release":
+                log(release.release)
+                break
+            default:
+                if (!release) {
+                    async.exit(1)
+                }
 
-        log(release)
+                log(release.version)
+                break
+        }
         async.exit()
     } catch (error) {
         log(chalk.red(error.message))
