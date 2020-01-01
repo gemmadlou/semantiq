@@ -9,5 +9,4 @@ install:
     - npm install -g semantiq
 script:
     - npm run qa && codecov
-after_script:
     - ./scripts/version

@@ -4,13 +4,14 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" 
 URL="https://github.com/gemmadlou/semantiq.git"
 RELEASE=`semantiq release`
+VERSION=`semantiq version`
 
 cat > ~/.git-credentials <<EOL
 https://gemmadlou:${GH_TOKEN}@github.com/gemmadlou/semantiq.git
 EOL
 
 ## Set Origin
-cd ../
+cd $DIR && ../
 
 git remote set-url origin $URL
 
@@ -21,8 +22,8 @@ fi
 
 echo "RELEASING"
 
-npm version $RELEASE -m "Version $RELEASE released"
+npm version $RELEASE -m "Version $VERISON released"
 
-git tag -a $RELEASE -m "$RELEASE"
+git tag -a $VERSION -m "$VERSION"
 
-git pull --rebase && push -u origin master
+git pull --rebase && git push -u origin master --follow-tags
