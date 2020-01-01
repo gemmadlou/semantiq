@@ -3,7 +3,7 @@ node_js:
     - "node"
     - "8"
 before_install:
-    - npm install
+    - npm ci
 install:
     - npm install -g codecov
 script:
